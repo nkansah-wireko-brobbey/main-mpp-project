@@ -1,6 +1,9 @@
 package business;
 
+import dataaccess.User;
+
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public interface ControllerInterface {
@@ -29,4 +32,6 @@ public interface ControllerInterface {
 	void saveBook(Book book);
 
 	LibraryMember findMemberById(String memberId);
+
+	HashMap<String, User> userMap();
 }

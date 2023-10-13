@@ -28,6 +28,11 @@ public class SystemController implements ControllerInterface {
 
     }
 
+    public HashMap<String, User> userMap(){
+        HashMap<String, User> map = da.readUserMap();
+        return map;
+    }
+
     @Override
     public void checkBook(String memberId, String isbn) throws LibrarySystemException {
         DataAccess dao = new DataAccessFacade();

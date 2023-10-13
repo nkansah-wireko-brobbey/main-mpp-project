@@ -61,7 +61,6 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
                     member.getAddress()
             });
         }
-
         JPanel panel_1 = new JPanel();
         add(panel_1, BorderLayout.SOUTH);
 
@@ -245,11 +244,11 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
             String idString = txtFieldId.getText();
             String firstNameString = txtFieldFirstName.getText();
             String lastNameString = txtFieldLastName.getText();
-            String telephoneString = txtTelephone.getText() == null ? "N/A" : txtTelephone.getText();
-            String streetString = txtFieldStreet.getText() == null ? "N/A" : txtFieldStreet.getText();
-            String cityString = txtCity.getText() == null ? "N/A" : txtCity.getText();
-            String stateString = txtState.getText() == null ? "N/A" : txtState.getText();
-            String zipString = txtZip.getText() == null ? "N/A" : txtZip.getText();
+            String telephoneString = txtTelephone.getText().isEmpty() ? "N/A" : txtTelephone.getText();
+            String streetString = txtFieldStreet.getText().isEmpty() ? "N/A" : txtFieldStreet.getText();
+            String cityString = txtCity.getText().isEmpty() ? "N/A" : txtCity.getText();
+            String stateString = txtState.getText().isEmpty() ? "N/A" : txtState.getText();
+            String zipString = txtZip.getText() .isEmpty() ? "N/A" : txtZip.getText();
             if (firstNameString.isEmpty() || lastNameString.isEmpty() || idString.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Invalid id or first name or last name", "",
                         ERROR_MESSAGE);
@@ -261,7 +260,7 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
             LibraryMember member = new LibraryMember(idString, firstNameString, lastNameString, telephoneString,
                     newAddress);
             ci.saveMember(member);
-            JOptionPane.showMessageDialog(frame, "Update member successfully", "", INFORMATION_MESSAGE,
+            JOptionPane.showMessageDialog(frame, "Member updated successfully", "", INFORMATION_MESSAGE,
                     new ImageIcon(System.getProperty("user.dir") + "/src/librarysystem/success.png"));
             model.setValueAt(member.getMemberId(), selectedRow, 0);
             model.setValueAt(member.getFirstName(), selectedRow, 1);
@@ -272,7 +271,6 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
 
         });
     }
-
     void clearText() {
         txtCity.setText("");
         txtFieldFirstName.setText("");

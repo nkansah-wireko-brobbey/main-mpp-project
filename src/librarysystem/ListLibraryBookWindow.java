@@ -25,6 +25,8 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
     private JTextField searchField;
     DefaultTableModel model;
 
+    JButton btnCopy = new JButton("ADD COPY");
+
     private int selectedRow = -1;
 
     public ListLibraryBookWindow() {
@@ -76,7 +78,7 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
         JButton btnClearSearch = new JButton("CLEAR SEARCH");
         panel_3.add(btnClearSearch);
 
-        JButton btnCopy = new JButton("ADD COPY");
+//        JButton btnCopy = new JButton("ADD COPY");
         panel_3.add(btnCopy);
 
         JPanel middlePanel = new JPanel();
@@ -139,29 +141,8 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
         jScrollPane.setViewportView(table);
         panel_4.add(jScrollPane);
 
-        btnCopy.addActionListener(e -> {
-            int count = table.getSelectedRowCount();
-            if (count == 1) {
-                selectedRow = table.getSelectedRow();
-                String isbn = (String) table.getValueAt(selectedRow, 0);
-                Book book = ci.getBookByISBN(isbn);
-                book.addCopy();
-                ci.saveBook(book);
-
-                model.setValueAt(book.getAvailableBooksLength(), selectedRow, 3);
-                model.setValueAt(book.getCopies().length, selectedRow, 4);
-
-                clearText();
-                JOptionPane.showMessageDialog(this, "Copy a book successfully.", "",
-                        JOptionPane.INFORMATION_MESSAGE);
-                table.clearSelection();
-
-            } else if (count > 1) {
-                JOptionPane.showMessageDialog(this, "Please select single a book.", "", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Select a book row", "", JOptionPane.ERROR_MESSAGE);
-            }
-        });
+     ////
+        copyButtonActionListener();
 
         btnSearch.addActionListener(e -> {
             String isbn = searchField.getText();
@@ -195,6 +176,32 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
         btnClearSearch.addActionListener((evt) -> {
             searchField.setText("");
             updateJtable();
+        });
+    }
+
+    void copyButtonActionListener(){
+        btnCopy.addActionListener(e -> {
+            int count = table.getSelectedRowCount();
+            if (count == 1) {
+                selectedRow = table.getSelectedRow();
+                String isbn = (String) table.getValueAt(selectedRow, 0);
+                Book book = ci.getBookByISBN(isbn);
+                book.addCopy();
+                ci.saveBook(book);
+
+                model.setValueAt(book.getAvailableBooksLength(), selectedRow, 3);
+                model.setValueAt(book.getCopies().length, selectedRow, 4);
+
+                clearText();
+                JOptionPane.showMessageDialog(this, "Copy a book successfully.", "",
+                        JOptionPane.INFORMATION_MESSAGE);
+                table.clearSelection();
+
+            } else if (count > 1) {
+                JOptionPane.showMessageDialog(this, "Please select single a book.", "", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Select a book row", "", JOptionPane.ERROR_MESSAGE);
+            }
         });
     }
 

@@ -48,7 +48,7 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
 
         JLabel lblNewLabel = new JLabel("Table of Library Members");
         panel.add(lblNewLabel);
-        Object[] columnsObjects = {"ID", "First Name", "Last Name", "TEL", "Address"};
+        Object[] columnsObjects = {"ID", "First Name", "Last Name", "Tel", "Address"};
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(columnsObjects);
         Collection<LibraryMember> members = ci.alLibraryMembers();
@@ -71,11 +71,11 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
         JPanel panel_3 = new JPanel();
         panel_3.setBounds(154, 231, 430, 39);
 
-        JButton btnAdd = new JButton("ADD");
+        JButton btnAdd = new JButton("Add");
         panel_3.add(btnAdd);
         btnAdd.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        JButton btnDelete = new JButton("DELETE");
+        JButton btnDelete = new JButton("Delete");
         panel_3.add(btnDelete);
 
         JButton btnUpdate = new JButton("Update");

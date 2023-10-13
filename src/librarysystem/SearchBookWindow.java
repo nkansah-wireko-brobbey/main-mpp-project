@@ -60,10 +60,10 @@ public class SearchBookWindow extends JPanel implements LibWindow {
         searchField.setSize(200, 24);
         panel_3.add(searchField);
 
-        JButton btnSearch = new JButton("SEARCH");
+        JButton btnSearch = new JButton("Search");
         panel_3.add(btnSearch);
 
-        JButton btnClearSearch = new JButton("CLEAR");
+        JButton btnClearSearch = new JButton("Clear");
         panel_3.add(btnClearSearch);
 
         JList<String> mainList = createJList();
@@ -90,7 +90,7 @@ public class SearchBookWindow extends JPanel implements LibWindow {
             ;
         };
 
-        Object[] columnsObjects = { "ISBN", "TITLE", "Copy #", "OVERDUE", "DUE DATE", "MEMBER" };
+        Object[] columnsObjects = { "ISBN", "Title", "Copy #", "OverDue", "Due Date", "Member" };
         model = new DefaultTableModel();
         model.setColumnIdentifiers(columnsObjects);
 
@@ -111,7 +111,7 @@ public class SearchBookWindow extends JPanel implements LibWindow {
             String isbn = searchField.getText();
             if (isbn.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Enter book ISBN", "", ERROR_MESSAGE);
-                System.out.println("exist member id");
+                System.out.println("MemberID exists");
                 return;
             }
 
@@ -138,7 +138,7 @@ public class SearchBookWindow extends JPanel implements LibWindow {
                                 book.getIsbn(),
                                 book.getTitle(),
                                 entry.getCopy().getCopyNum(),
-                                entry.isOverdue() ? "YES" : "NO",
+                                entry.isOverdue() ? "Yes" : "No",
                                 entry.getDueDate().format(formatter),
                                 record.getMember().getFullName()
                         });

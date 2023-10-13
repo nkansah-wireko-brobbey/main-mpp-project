@@ -42,7 +42,7 @@ public class BookCheckoutWindow extends JPanel implements LibWindow {
         errorLabel.setText("Hello World");
         panel.add(lblNewLabel);
 
-        Object[] columnsObjects = { "CHECKOUT DATE", "DUE DATE", "ISBN", "BOOK TITLE", "BORROWER", "TEL" };
+        Object[] columnsObjects = { "CheckOut Date", "Due Date", "ISBN", "Book Title", "Borrower", "Tel" };
 
         model.setColumnIdentifiers(columnsObjects);
         getCheckoutHistoryList();
@@ -56,7 +56,7 @@ public class BookCheckoutWindow extends JPanel implements LibWindow {
         JPanel panel_3 = new JPanel();
         panel_3.setBounds(154, 231, 430, 39);
 
-        JButton checkoutBookButton = new JButton("CHECKOUT BOOK");
+        JButton checkoutBookButton = new JButton("CheckOut Book");
         panel_3.add(checkoutBookButton);
         checkoutBookButton.setHorizontalAlignment(SwingConstants.RIGHT);
 

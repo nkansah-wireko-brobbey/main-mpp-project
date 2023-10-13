@@ -25,7 +25,7 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
     private JTextField searchField;
     DefaultTableModel model;
 
-    JButton btnCopy = new JButton("ADD COPY");
+    JButton btnCopy = new JButton("Add Copy");
 
     private int selectedRow = -1;
 
@@ -72,10 +72,10 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
         searchField = new JTextField();
         searchField.setSize(200, 24);
         panel_3.add(searchField);
-        JButton btnSearch = new JButton("ISBN SEARCH");
+        JButton btnSearch = new JButton("ISBN Search");
         panel_3.add(btnSearch);
 
-        JButton btnClearSearch = new JButton("CLEAR SEARCH");
+        JButton btnClearSearch = new JButton("Clear Search");
         panel_3.add(btnClearSearch);
 
 //        JButton btnCopy = new JButton("ADD COPY");
@@ -193,7 +193,7 @@ public class ListLibraryBookWindow extends JPanel implements LibWindow {
                 model.setValueAt(book.getCopies().length, selectedRow, 4);
 
                 clearText();
-                JOptionPane.showMessageDialog(this, "Copy a book successfully.", "",
+                JOptionPane.showMessageDialog(this, "Book added successfully.", "",
                         JOptionPane.INFORMATION_MESSAGE);
                 table.clearSelection();
 

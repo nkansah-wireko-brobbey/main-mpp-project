@@ -24,8 +24,6 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
     private JTable table;
     ControllerInterface ci = new SystemController();
     private int selectedRow = -1;
-
-
     public ListLibraryMemberWindow() {
         init();
     }

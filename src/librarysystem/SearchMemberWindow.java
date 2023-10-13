@@ -38,7 +38,7 @@ public class SearchMemberWindow extends JPanel implements LibWindow {
         add(panel, BorderLayout.NORTH);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-        JLabel lblNewLabel = new JLabel("Member Search");
+        JLabel lblNewLabel = new JLabel("Search Member");
         panel.add(lblNewLabel);
 
         JPanel panel_1 = new JPanel();
@@ -50,14 +50,14 @@ public class SearchMemberWindow extends JPanel implements LibWindow {
         JPanel panel_3 = new JPanel();
         panel_3.setBounds(154, 231, 430, 39);
 
-        JButton searchMemberButton = new JButton("SEARCH");
+        JButton searchMemberButton = new JButton("Search");
         panel_3.add(searchMemberButton);
         searchMemberButton.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        JButton printRecordButton = new JButton("PRINT RECORD");
+        JButton printRecordButton = new JButton("Print Record");
         panel_3.add(printRecordButton);
 
-        JButton clearFieldsButton = new JButton("CLEAR FIELDS");
+        JButton clearFieldsButton = new JButton("Clear Fields");
         panel_3.add(clearFieldsButton);
 
         JPanel middlePanel = new JPanel();
@@ -167,7 +167,7 @@ public class SearchMemberWindow extends JPanel implements LibWindow {
             }
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-            System.out.printf("%-10s\t%-10s\t%-8s\t%-6s\t%-20s\t%s\n", "CHECKOUT", "DUE", "ISBN", "COPIES", "TITLE", "MEMBER");
+            System.out.printf("%-10s\t%-10s\t%-8s\t%-6s\t%-20s\t%s\n", "CheckOut", "Due", "ISBN", "Copies", "Title", "Member");
             member.getCheckoutRecords().forEach(record -> {
                 record.getEntries().forEach(entry -> {
                     Book b = entry.getCopy().getBook();

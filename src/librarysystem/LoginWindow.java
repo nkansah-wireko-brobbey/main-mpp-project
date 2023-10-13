@@ -1,6 +1,7 @@
 package librarysystem;
 
 import business.ControllerInterface;
+import business.LoginException;
 import business.SystemController;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
@@ -72,24 +73,41 @@ public class LoginWindow extends JPanel implements LibWindow {
 	    	}
 
 			ControllerInterface systemController = new SystemController();
+			Map<String, User> users;
 
+			try {
+				systemController.login(userId, userPass);
+				users = systemController.userMap();
+				User user = users.get(userId);
+				username.setText("");
+				password.setText("");
+				System.out.println(user.getAuthorization());
+				LibrarySystem.INSTANCE.setLoggedInUser(user);
+				LibrarySystem.INSTANCE.init();
+			} catch (LoginException e) {
 
-	    	DataAccess da = new DataAccessFacade();
-	    	Map<String, User> users = da.readUserMap();
-	    	if(!users.containsKey(userId)) {
-	    		JOptionPane.showMessageDialog(this,"Invalid username", "", JOptionPane.ERROR_MESSAGE);
-	    		return;
-	    	}
-	    	User user = users.get(userId);
-	    	if(!userPass.equals(user.getPassword())) {
-	    		JOptionPane.showMessageDialog(this,"Invalid password", "", JOptionPane.ERROR_MESSAGE);
-	    		return;
-	    	}
-	    	username.setText("");
-	    	password.setText("");
-	    	System.out.println(user.getAuthorization());
-	    	LibrarySystem.INSTANCE.setLoggedInUser(user);
-	    	LibrarySystem.INSTANCE.init();
+				JOptionPane.showMessageDialog(this,e.getMessage(), "", JOptionPane.ERROR_MESSAGE);
+//				throw new RuntimeException(e);
+				return;
+			}
+
+//
+//			DataAccess da = new DataAccessFacade();
+//	    	Map<String, User> users = da.readUserMap();
+//	    	if(!users.containsKey(userId)) {
+//	    		JOptionPane.showMessageDialog(this,"Invalid username", "", JOptionPane.ERROR_MESSAGE);
+//	    		return;
+//	    	}
+//	    	User user = users.get(userId);
+//	    	if(!userPass.equals(user.getPassword())) {
+//	    		JOptionPane.showMessageDialog(this,"Invalid password", "", JOptionPane.ERROR_MESSAGE);
+//	    		return;
+//	    	}
+//	    	username.setText("");
+//	    	password.setText("");
+//	    	System.out.println(user.getAuthorization());
+//	    	LibrarySystem.INSTANCE.setLoggedInUser(user);
+//	    	LibrarySystem.INSTANCE.init();
 	  	});
     }
 }

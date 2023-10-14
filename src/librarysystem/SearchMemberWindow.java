@@ -12,14 +12,7 @@ import java.time.format.DateTimeFormatter;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 public class SearchMemberWindow extends JPanel implements LibWindow {
-    private JTextField txtFieldFirstName;
-    private JTextField txtState;
-    private JTextField txtZip;
-    private JTextField txtFieldLastName;
-    private JTextField txtCity;
-    private JTextField txtFieldStreet;
-    private JTextField txtFieldId;
-    private JTextField txtTelephone;
+    private JTextField txtFieldFirstName,txtState, txtZip, txtFieldLastName, txtCity, txtFieldStreet, txtFieldId, txtTelephone;
 
     ControllerInterface ci = new SystemController();
 

@@ -175,7 +175,6 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
         });
 
         table.addMouseListener(new MouseAdapter() {
-
             @Override
             public void mousePressed(MouseEvent e) {
                 int count = table.getSelectedRowCount();
@@ -217,7 +216,7 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
             List<String> memberStrings = ci.allMemberIds();
             if (memberStrings.contains(idString)) {
                 JOptionPane.showMessageDialog(frame, "Member id exists", "", ERROR_MESSAGE);
-                System.out.println("Member id exists");
+                //System.out.println("Member id exists");
                 return;
             }
             Address newAddress = new Address(streetString, cityString, stateString, zipString);

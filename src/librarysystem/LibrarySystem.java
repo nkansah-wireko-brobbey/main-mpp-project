@@ -81,7 +81,8 @@ public class LibrarySystem extends JFrame implements LibWindow {
     private void setPathToImage() {
         String currDirectory = System.getProperty("user.dir");
         // for mac use this
-        pathToImage = currDirectory + "/src/librarysystem/library.jpg";
+       // pathToImage = currDirectory + "/src/librarysystem/library.jpg";
+        pathToImage = currDirectory + "/src/librarysystem/lib.jpg";
         // for windows use this
         // pathToImage = currDirectory+"\\src\\librarysystem\\ßlibrary.jpg";
     }

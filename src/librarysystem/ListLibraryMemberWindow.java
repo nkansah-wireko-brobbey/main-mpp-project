@@ -18,7 +18,7 @@ import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 public class ListLibraryMemberWindow extends JPanel implements LibWindow {
-    private JTextField txtFieldFirstName, txtState, txtZip, txtFieldLastName, txtCity, txtFieldStreet, txtFieldId, txtTelephone;
+    private JTextField txtFieldId, txtFieldFirstName, txtFieldLastName, txtFieldStreet, txtCity, txtState, txtZip, txtTelephone;
     private JButton btnAdd;
     private JFrame frame;
     private JTable table;
@@ -156,6 +156,7 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
         JScrollPane jScrollPane = new JScrollPane();
         jScrollPane.setViewportView(table);
         panel_4.add(jScrollPane);
+
         btnDelete.addActionListener(e -> {
             int count = table.getSelectedRowCount();
             if (count == 1) {
@@ -272,7 +273,6 @@ public class ListLibraryMemberWindow extends JPanel implements LibWindow {
         txtTelephone.setText("");
         txtZip.setText("");
     }
-
     @Override
     public void init() {
         initialize();

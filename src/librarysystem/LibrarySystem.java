@@ -77,7 +77,6 @@ public class LibrarySystem extends JFrame implements LibWindow {
         splitPane.setLeftComponent(menuPanel);
 
     }
-
     private void setPathToImage() {
         String currDirectory = System.getProperty("user.dir");
         // for mac use this

@@ -6,4 +6,3 @@ public interface LibWindow {
 	void isInitialized(boolean val);
 	void setVisible(boolean b);
 }
-
